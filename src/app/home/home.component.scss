@@ -1,3 +1,8 @@
+.container-main{
+  padding: 0 0 3rem 0;
+  margin-bottom: 15rem;
+}
+
 ul{
   display: flex;
   justify-content: center;
@@ -5,33 +10,40 @@ ul{
   flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 2rem;
 }
 
 ul li a{
-  height: 25rem;
+  height: auto;
   width: 20rem;
-  border: 2px solid whitesmoke;
   border-radius: 1rem;
-  margin: 0.5rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   color: #e72929;
-  transition: all .4s;
+  transition: all .5s;
 }
 
-ul li a:hover{
-  box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.247);
+ul li a img{
+  transition: all .2s;
 }
 
-li a:hover{
+li a:hover img{
   opacity: 0.9;
   cursor: pointer;
+  scale: 1.1;
 }
 
 .content{
   padding: .5rem 1rem;
   position: relative;
+  border: 2px solid whitesmoke;
+  border-top: none;
+  border-radius: 0 0 1rem 1rem;
+  background-color: white;
 }
 
 .favorite{
@@ -80,3 +92,22 @@ li a:hover{
   color: #414141;
   margin-top: .7rem;
 }
+
+@media (max-height: 900px) {
+  .container-main{
+    margin-bottom: 20rem;
+  }
+}
+
+@media (max-width: 600px){
+  ul li a img{
+    height: 10rem;
+    object-fit: cover;
+  }
+
+  .container-main{
+    margin-bottom: 10rem;
+  }
+}
+
+

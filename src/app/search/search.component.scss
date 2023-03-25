@@ -39,3 +39,14 @@ div button:hover{
   opacity: 1;
   cursor: pointer;
 }
+
+@media (max-width: 600px){
+  div input{
+    height: 2.5rem;
+    width: 15rem;
+  }
+
+  div button{
+    height: 2.5rem;
+  }
+}

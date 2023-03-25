@@ -1,6 +1,11 @@
 <!-- .some() -> verifica se há algum elemento dentro do meu array -->
-<div *ngIf="tags">
+<div *ngIf="tags" [style.justifyContent] = "justifyContent" data-aos="fade-up" data-aos-duration="300">
   <a *ngFor="let tag of tags" routerLink="/tag/{{ tag.name }}">
     {{ tag.name }}({{ tag.count }})
+  </a>
+</div>
+<div *ngIf="foodPageTags" [style.justifyContent] = "justifyContent" class="tags">
+  <a *ngFor="let tagName of foodPageTags" routerLink="/tag/{{ tagName }}">
+    {{ tagName }}
   </a>
 </div>

@@ -1,44 +1,49 @@
-<app-search></app-search>
-<app-tags></app-tags>
-<ul>
-  <li *ngFor="let food of foods">
-    <a>
-      <img src="{{ food.imageUrl }}">
-      <div class="content">
-        <div class="name">
-        {{ food.name }}
-        </div>
-        <span class="favorite {{ food.favorite ? '' : 'not' }}">
-          ❤
-        </span>
-        <div class="starts">
-          <star-rating
-          [value]="food.stars"
-          [totalstars]="5"
-          checkedcolor="rgb(235, 200, 1)"
-          uncheckedcolor="black"
-          size="20px"
-          [readonly]="true">
-        </star-rating>
-        </div>
-        <div class="product-item-footer">
-          <div class="origins">
-            <span *ngFor="let origin of food.origins">
-              {{ origin }}
+<div class="container-main">
+  <app-search></app-search>
+  <app-tags></app-tags>
+  <app-not-found [visible]="!foods || foods.length <= 0" resetLinkText="Reset Search"></app-not-found>
+    <ul>
+      <li *ngFor="let food of foods" data-aos="fade-up" data-aos-duration="300">
+        <a routerLink="/food/{{ food.id }}">
+          <img src="{{ food.imageUrl }}">
+          <div class="content">
+            <div class="name">
+            {{ food.name }}
+            </div>
+            <span class="favorite {{ food.favorite ? '' : 'not' }}">
+              ❤
             </span>
+            <div class="starts">
+              <star-rating
+              [value]="food.stars"
+              [totalstars]="5"
+              checkedcolor="rgb(235, 200, 1)"
+              uncheckedcolor="black"
+              size="20px"
+              [readonly]="true">
+            </star-rating>
+            </div>
+            <div class="product-item-footer">
+              <div class="origins">
+                <span *ngFor="let origin of food.origins">
+                  {{ origin }}
+                </span>
+              </div>
+              <div class="cook-time">
+                <span>🕒</span>
+                {{ food.cookTime }}
+              </div>
+            </div>
+            <div class="price">
+              <span>
+                {{ food.price|currency }}
+              </span>
+            </div>
           </div>
-          <div class="cook-time">
-            <span>🕒</span>
-            {{ food.cookTime }}
-          </div>
-        </div>
-        <div class="price">
-          <span>
-            {{ food.price|currency }}
-          </span>
-        </div>
-      </div>
-    </a>
-  </li>
-</ul>
+        </a>
+      </li>
+    </ul>
+</div>
+<app-footer></app-footer>
+
 

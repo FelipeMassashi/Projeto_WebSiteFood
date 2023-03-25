@@ -1,7 +1,6 @@
 div{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 div a{
@@ -17,4 +16,20 @@ div a{
 div a:hover{
   background-color: rgb(68, 68, 68);
   color: white;
+}
+
+@media (max-width: 600px) {
+  div{
+    width: 80%;
+    margin: auto;
+  }
+
+  div a{
+    padding: .1rem .8rem;
+    font-size: 1rem;
+  }
+
+  .tags{
+    margin-left: 0;
+  }
 }
